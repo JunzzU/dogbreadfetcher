@@ -29,7 +29,7 @@ public class DogApiBreedFetcher implements BreedFetcher {
             throw new BreedNotFoundException("Breed not found");
         }
 
-        String url = String.format(Locale.ROOT, "https://dog.ceo/api/breed", breed.toLowerCase(Locale.ROOT));
+        String url = String.format(Locale.ROOT, "https://dog.ceo/api/breed/%s/list", breed.toLowerCase(Locale.ROOT));
         Request request = new Request.Builder().url(url).build();
 
         try (Response response = client.newCall(request).execute()) {
